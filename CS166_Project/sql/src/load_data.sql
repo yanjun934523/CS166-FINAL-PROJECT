@@ -36,7 +36,7 @@ COPY MESSAGE (
 	sendTime,
 	deleteStatus,
 	status)
-FROM 'Message.CSV'
+FROM 'Message.CSV' CSV
 WITH DELIMITER ',';
 
 COPY CONNECTION_USR (
