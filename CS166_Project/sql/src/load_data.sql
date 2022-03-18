@@ -1,3 +1,4 @@
+
 COPY USR (
 	userId,
 	passwor,
@@ -5,7 +6,7 @@ COPY USR (
 	name,
 	dateOfBirth)
 FROM 'USR.csv'
-WITH DELIMITER ';';
+WITH DELIMITER ',';
 
 COPY WORK_EXPR(
 	userId,
