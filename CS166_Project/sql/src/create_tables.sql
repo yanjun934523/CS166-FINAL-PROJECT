@@ -37,7 +37,7 @@ CREATE TABLE MESSAGE(
 	msgId integer UNIQUE NOT NULL, 
 	senderId char(30) NOT NULL,
 	receiverId char(30) NOT NULL,
-	contents string NOT NULL,
+	contents text(500) NOT NULL,
 	sendTime timestamp,
 	deleteStatus integer,
 	status char(30) NOT NULL,
