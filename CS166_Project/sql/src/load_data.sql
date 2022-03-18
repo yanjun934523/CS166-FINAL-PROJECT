@@ -33,6 +33,7 @@ COPY MESSAGE (
 	senderId,
 	receiverId,
 	contents,
+	sendTime,
 	deleteStatus,
 	status)
 FROM 'Message.CSV'
