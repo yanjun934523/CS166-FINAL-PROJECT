@@ -46,8 +46,8 @@ CREATE TABLE MESSAGE(
 	FOREIGN KEY(receiverId) REFERENCES USR(userId));
 
 CREATE TABLE CONNECTION_USR(
-	userId char(10) NOT NULL, 
-	connectionId char(10) NOT NULL, 
+	userId char(20) NOT NULL, 
+	connectionId char(20) NOT NULL, 
 	status char(30) NOT NULL,
 	PRIMARY KEY(userId,connectionId),
 	FOREIGN KEY(userId) REFERENCES USR(userId));
