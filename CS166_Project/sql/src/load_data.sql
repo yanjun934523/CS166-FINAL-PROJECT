@@ -6,7 +6,7 @@ COPY USR (
 	name,
 	dateOfBirth)
 FROM 'USR.CSV'
-WITH DELIMITER ',';
+WITH DELIMITER ',' CSV;
 
 COPY WORK_EXPR(
 	userId,
@@ -16,7 +16,7 @@ COPY WORK_EXPR(
 	startDate,
 	endDate)
 FROM 'Work_Ex.CSV'
-WITH DELIMITER ',';
+WITH DELIMITER ',' CSV;
 
 COPY EDUCATIONAL_DETAILS (
 	userId,
@@ -26,7 +26,7 @@ COPY EDUCATIONAL_DETAILS (
 	startdate,
 	enddate)
 FROM 'Edu_Det.CSV'
-WITH DELIMITER ',';
+WITH DELIMITER ',' CSV;
 
 COPY MESSAGE (
 	msgId,
@@ -44,4 +44,4 @@ COPY CONNECTION_USR (
 	connectionId,
 	status)
 FROM 'Connection.CSV'
-WITH DELIMITER ',';
+WITH DELIMITER ',' CSV;
