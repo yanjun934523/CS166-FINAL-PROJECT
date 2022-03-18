@@ -6,7 +6,7 @@ DROP TABLE USR;
 
 
 CREATE TABLE USR(
-	userId varchar(20) UNIQUE NOT NULL, 
+	userId varchar(30) UNIQUE NOT NULL, 
 	password varchar(10) NOT NULL,
 	email text NOT NULL,
 	name char(50),
@@ -14,7 +14,7 @@ CREATE TABLE USR(
 	Primary Key(userId));
 
 CREATE TABLE WORK_EXPR(
-	userId char(20) NOT NULL, 
+	userId char(30) NOT NULL, 
 	company char(50) NOT NULL, 
 	role char(50) NOT NULL,
 	location char(50),
@@ -24,7 +24,7 @@ CREATE TABLE WORK_EXPR(
 	FOREIGN KEY(userId) REFERENCES USR(userId));
 
 CREATE TABLE EDUCATIONAL_DETAILS(
-	userId char(20) NOT NULL, 
+	userId char(30) NOT NULL, 
 	instituitionName char(50) NOT NULL, 
 	major char(50) NOT NULL,
 	degree char(50) NOT NULL,
@@ -35,8 +35,8 @@ CREATE TABLE EDUCATIONAL_DETAILS(
 
 CREATE TABLE MESSAGE(
 	msgId integer UNIQUE NOT NULL, 
-	senderId char(20) NOT NULL,
-	receiverId char(20) NOT NULL,
+	senderId char(30) NOT NULL,
+	receiverId char(30) NOT NULL,
 	contents char(500) NOT NULL,
 	sendTime timestamp,
 	deleteStatus integer,
@@ -46,8 +46,8 @@ CREATE TABLE MESSAGE(
 	FOREIGN KEY(receiverId) REFERENCES USR(userId));
 
 CREATE TABLE CONNECTION_USR(
-	userId char(20) NOT NULL, 
-	connectionId char(20) NOT NULL, 
+	userId char(30) NOT NULL, 
+	connectionId char(30) NOT NULL, 
 	status char(30) NOT NULL,
 	PRIMARY KEY(userId,connectionId),
 	FOREIGN KEY(userId) REFERENCES USR(userId));
