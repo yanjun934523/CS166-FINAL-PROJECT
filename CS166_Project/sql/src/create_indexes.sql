@@ -1,3 +1,13 @@
+DROP INDEX index_USR_userId;
+DROP INDEX index_USR_name;
+DROP INDEX index_USR_dateOfBirth;
+DROP INDEX index_WORK_EXPR_userId;
+DROP INDEX index_EDUCATIONAL_DETAILS_userId;
+DROP INDEX index_MESSAGE_msgId;
+DROP INDEX index_MESSAGE_receiverId;
+DROP INDEX index_CONNECTION_USR_userId;
+DROP INDEX index_CONNECTION_USR_connectionId;
+
 CREATE INDEX index_USR_userId
 ON USR(userId);
 
