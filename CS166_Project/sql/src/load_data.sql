@@ -8,7 +8,6 @@ COPY USR (
 FROM 'USR.csv'
 WITH DELIMITER ',';
 
-
 COPY WORK_EXPR(
 	userId,
 	company,
