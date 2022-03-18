@@ -1,7 +1,7 @@
 
 COPY USR (
 	userId,
-	passwor,
+	password,
 	email,
 	name,
 	dateOfBirth)
@@ -15,7 +15,7 @@ COPY WORK_EXPR(
 	location,
 	startDate,
 	endDate)
-FROM 'WORK_EXPR.csv'
+FROM 'Work_Ex.csv'
 WITH DELIMITER ',';
 
 COPY EDUCATIONAL_DETAILS (
@@ -25,7 +25,7 @@ COPY EDUCATIONAL_DETAILS (
 	degree,
 	startdate,
 	enddate)
-FROM 'EDUCATIONAL_DETAILS.csv'
+FROM 'Edu_Det.csv'
 WITH DELIMITER ',';
 
 COPY MESSAGE (
@@ -35,12 +35,12 @@ COPY MESSAGE (
 	contents,
 	deleteStatus,
 	status)
-FROM 'MESSAGE.csv'
+FROM 'Message.csv'
 WITH DELIMITER ',';
 
 COPY CONNECTION_USR (
 	userId,
 	connectionId,
 	status)
-FROM 'CONNECTION_USR.csv'
+FROM 'Connection.csv'
 WITH DELIMITER ',';
