@@ -372,7 +372,7 @@ public class ProfNetwork {
          String query = String.format("SELECT * FROM USR WHERE userId = '%s' AND password = '%s'", login, password);
          int userNum = esql.executeQuery(query);
 	 if (userNum > 0)
-         esql.cu
+         esql.current_user;
 		return login;
          return null;
       }catch(Exception e){
