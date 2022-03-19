@@ -391,7 +391,7 @@ public class ProfNetwork {
          System.out.print("\tReenter new password: ");
          String new_password2 = in.readLine();
          if(new_password.equals(new_password2)){
-            query = String.format("UPDATE USR SET password = '%s' WHERE userId = '%s", new_password, login);
+            query = String.format("UPDATE USR SET password = '%s' WHERE userId = '%s'", new_password, login);
             esql.executeUpdate(query);
             System.out.println ("User password changed!");
          }
