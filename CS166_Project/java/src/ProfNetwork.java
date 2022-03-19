@@ -35,6 +35,8 @@ public class ProfNetwork {
    // reference to physical database connection.
    private Connection _connection = null;
 
+   public String current_user = null;
+
    // handling the keyboard inputs through a BufferedReader
    // This variable can be global for convenience.
    static BufferedReader in = new BufferedReader(
@@ -282,7 +284,9 @@ public class ProfNetwork {
                    //case 4: SendRequest(esql); break;
                    case 5: ChangePassword(esql); break;
                    case 6: SearchPeople(esql); break;
-                   case 9: usermenu = false; break;
+                   case 9: usermenu = false; 
+                   esql.current_user = null;  
+                   break;
                    default : System.out.println("Unrecognized choice!"); break;
                 }
               }
@@ -368,6 +372,7 @@ public class ProfNetwork {
          String query = String.format("SELECT * FROM USR WHERE userId = '%s' AND password = '%s'", login, password);
          int userNum = esql.executeQuery(query);
 	 if (userNum > 0)
+         esql.cu
 		return login;
          return null;
       }catch(Exception e){
@@ -426,7 +431,7 @@ public class ProfNetwork {
    public static void FriendList(ProfNetwork esql){
       try{
 		   
-         System.out.println(esql.authorisedUser);
+         System.out.println(esql.current_user);
          
       }catch(Exception e){
          System.err.println (e.getMessage ());
