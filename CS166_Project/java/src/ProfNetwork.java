@@ -418,7 +418,7 @@ public class ProfNetwork {
             for(int j = 0; j < item.size(); j++){
                System.out.print(item.get(j)+",");
             }
-            Ststem.out.println();
+            System.out.println();
          }
       }catch(Exception e){
          System.err.println (e.getMessage ());
