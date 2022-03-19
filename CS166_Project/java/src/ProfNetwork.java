@@ -415,7 +415,7 @@ public class ProfNetwork {
          int userNum = esql.executeQuery(query);
       
       if (userNum > 0)
-         System.err.println(esql.executeQueryAndReturnResult(query));
+         System.out.println(esql.executeQueryAndReturnResult(query));
       }catch(Exception e){
          System.err.println (e.getMessage ());
          
