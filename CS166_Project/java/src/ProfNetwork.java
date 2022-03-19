@@ -273,6 +273,7 @@ public class ProfNetwork {
                 System.out.println("3. Write a new message");
                 System.out.println("4. Send Friend Request");
                 System.out.println("5. Change Password");
+                System.out.println("6. Search people");
                 System.out.println("9. Log out");
                 switch (readChoice()){
                    //case 1: FriendList(esql); break;
@@ -280,6 +281,7 @@ public class ProfNetwork {
                    //case 3: NewMessage(esql); break;
                    //case 4: SendRequest(esql); break;
                    case 5: ChangePassword(esql); break;
+                   case 6: SearchPeople(esql); break;
                    case 9: usermenu = false; break;
                    default : System.out.println("Unrecognized choice!"); break;
                 }
@@ -400,6 +402,23 @@ public class ProfNetwork {
       }catch(Exception e){
          System.err.println (e.getMessage ());
          //return null;
+      }
+      
+   }//end
+
+   public static void SearchPeople(ProfNetwork esql){
+      try{
+		   System.out.print("\tEnter people's name: ");
+         String PeopleName = in.readLine();
+         
+         String query = String.format("SELECT U.name FROM USR U WHERE U.name ='%s'", PeopleName);
+         int userNum = esql.executeQuery(query);
+      }
+      if (userNum > 0)
+         System.err.println(esql.executeQueryAndReturnResult(query));
+      }catch(Exception e){
+         System.err.println (e.getMessage ());
+         
       }
       
    }//end
