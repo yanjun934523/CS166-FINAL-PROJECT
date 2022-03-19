@@ -276,14 +276,18 @@ public class ProfNetwork {
                 System.out.println("4. Send Friend Request");
                 System.out.println("5. Change Password");
                 System.out.println("6. Search people");
+                System.out.println("7. View connection request");
+                System.out.println("8. View message");
                 System.out.println("9. Log out");
                 switch (readChoice()){
                    case 1: FriendList(esql); break;
-                   //case 2: UpdateProfile(esql); break;
-                   //case 3: NewMessage(esql); break;
-                   //case 4: SendRequest(esql); break;
+                   case 2: UpdateProfile(esql); break;
+                   case 3: NewMessage(esql); break;
+                   case 4: SendRequest(esql); break;
                    case 5: ChangePassword(esql); break;
                    case 6: SearchPeople(esql); break;
+                   case 7: ConnectionRequest(esql); break;
+                   case 8: ViewMessage(esql); break;
                    case 9: usermenu = false; 
                    esql.current_user = null;  
                    break;
@@ -438,4 +442,133 @@ public class ProfNetwork {
       }
       
    }//end
+
+   //UpdateProfile(esql)
+   public static void UpdateProfile(ProfNetwork esql){
+      try{
+         System.out.print("\tEnter your email: ");
+         String email = in.readLine();
+         System.out.print("\tEnter your birthday: ");
+         String birthday = in.readLine();
+         String query = String.format("UPDATE USR SET email = '%s', dateOfBirth = '%s' WHERE userId = '%s'", email, birthday, esql.current_user);
+         esql.executeUpdate(query);
+
+         System.out.print("\tEnter your company: ");
+         String company = in.readLine();
+         System.out.print("\tEnter your role: ");
+         String role = in.readLine();
+         System.out.print("\tEnter your location: ");
+         String location = in.readLine();
+         query = String.format("UPDATE WORK_EXPR SET company = '%s', role = '%s', location = '%s' WHERE userId = '%s'", company, role, location, esql.current_user);
+         esql.executeUpdate(query);
+
+         System.out.print("\tEnter your instituition name: ");
+         String instituition_name = in.readLine();
+         System.out.print("\tEnter your major: ");
+         String major = in.readLine();
+         System.out.print("\tEnter your degree: ");
+         String degree = in.readLine();
+         query = String.format("UPDATE EDUCATIONAL_DETAILS SET instituitionName = '%s', major = '%s', degree = '%s' WHERE userId = '%s'", instituition_name, major, degree, esql.current_user);
+         esql.executeUpdate(query);
+         
+      }
+         
+      }catch(Exception e){
+         System.err.println(e.getMessage ());
+         //return null;
+      }
+      
+   }//end
+
+   //NewMessage(esql)
+   public static void NewMessage(ProfNetwork esql){
+      try{
+         System.out.print("\tEnter message receiver ID: ");
+         String receiver_id = in.readLine();
+         System.out.print("\tEnter message contents: ");
+         String content = in.readLine();
+         System.out.print("\tSend message right now? \n1. Yes\n2:No ");
+         if(readChoice()==1){
+            String query = String.format("INSERT INTO MESSAGE(senderId, receiverId, contents, sendTime, deleteStatus, status) Values('%s', '%s', '%s','%s', '%t', '%x','%s')",
+               esql.current_user, receiver_id, content, LocalDateTime.now(), 0, "Sent");
+         esql.executeUpdate(query);
+         }else{
+            String query = String.format("INSERT INTO MESSAGE(senderId, receiverId, contents, status) Values('%s', '%s', '%s','%s')",
+               esql.current_user, receiver_id, content, "Draft");
+         esql.executeUpdate(query);
+         }
+      }
+         
+      }catch(Exception e){
+         System.err.println(e.getMessage ());
+         //return null;
+      }
+      
+   }//end
+
+   //SendRequest
+   public static void SendRequest(ProfNetwork esql){
+      try{
+         System.out.print("\tEnter the user ID you want to connect with: ");
+         String receiver_id = in.readLine();
+         String query = String.format("INSERT INTO CONNECTION_USR(userId, connectionId, status) Values('%s', '%s', '%s')",
+               esql.current_user, receiver_id, "Request");
+         esql.executeUpdate(query);
+         }
+      }
+         
+      }catch(Exception e){
+         System.err.println(e.getMessage ());
+         //return null;
+      }
+      
+   }//end
+
+   //ConnectionRequest
+   public static void ConnectionRequest(ProfNetwork esql){
+      try{
+         String query = String.format();
+         esql.executeUpdate(query);
+         }
+      }
+         
+      }catch(Exception e){
+         System.err.println(e.getMessage ());
+         //return null;
+      }
+      
+   }//end
+
+   //view message
+   public static void ViewMessage(ProfNetwork esql){
+      try{
+         String query = String.format("SELECT M.contents FROM MESSAGE M WHERE M.receiverId = '%s', M.status = Sent", esql.current_user);
+         int i = esql.executeQueryAndPrintResult(query);
+         query = String.format("UPDATE MESSAGE SET status = Read WHERE receiverId = '%s'", esql.current_user);
+         esql.executeUpdate(query);
+
+         System.out.print("\tDo you want delete message?\n1.Yes\n2.No ");
+         if(readChoice()==1){
+            System.out.print("\tEnter the message Id you want delete: ");
+            String msid = in.readLine();
+            int messstatus = 0;
+            query = String.format("SELECT status FROM MESSAGE WHERE msgId = '%s'", msid);
+            List<List<String>> temp = espl.executeQueryAndReturnResult(query);
+            if(temp == 0){
+               messstatus = 2;
+            }else{
+               messstatus = 3;
+            }
+
+            String query = String.format("UPDATE MESSAGE SET deleteStatus = '%x' WHERE msgId = '%s';"messstatus,msid);
+         esql.executeUpdate(query);
+         }
+         
+      }catch(Exception e){
+         System.err.println(e.getMessage ());
+         //return null;
+      }
+      
+   }//end
+
 }//end ProfNetwork
