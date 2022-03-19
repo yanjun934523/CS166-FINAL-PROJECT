@@ -385,7 +385,7 @@ public class ProfNetwork {
          String query = String.format("SELECT * FROM USR WHERE userId = '%s' AND password = '%s'", login, password);
          int userNum = esql.executeQuery(query);
          
-         if (userNum > 0)
+         if (userNum > 0){
 		   System.out.print("\tEnter new password: ");
          String new_password = in.readLine();
          System.out.print("\tReenter new password: ");
@@ -395,6 +395,7 @@ public class ProfNetwork {
             esql.executeUpdate(query);
             System.out.println ("User password changed!");
          }
+      }
          
       }catch(Exception e){
          System.err.println (e.getMessage ());
