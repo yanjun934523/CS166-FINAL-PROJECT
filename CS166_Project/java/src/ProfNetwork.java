@@ -413,13 +413,7 @@ public class ProfNetwork {
          
          String query = String.format("SELECT U.name, U.email FROM USR U WHERE U.name ='%s'", PeopleName);
          List<List<String>> result = esql.executeQueryAndReturnResult(query);
-         for(int i = 0; i < result.size(); i++){
-            List<String> item = result.get(i);
-            for(int j = 0; j < item.size(); j++){
-               System.out.print(item.get(j)+",");
-            }
-            System.out.println();
-         }
+         System.out.println(Arrays.toString(result.toArray()));
       }catch(Exception e){
          System.err.println (e.getMessage ());
          
