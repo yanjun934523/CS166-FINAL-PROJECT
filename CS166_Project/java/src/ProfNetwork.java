@@ -541,7 +541,7 @@ public class ProfNetwork {
    //view message
    public static void ViewMessage(ProfNetwork esql){
       try{
-         String query = String.format("SELECT M.contents FROM MESSAGE M WHERE M.receiverId = '%s', M.status = Sent", esql.current_user);
+         String query = String.format("SELECT M.contents FROM MESSAGE M WHERE M.receiverId = '%s' AND M.status = Sent", esql.current_user);
          int i = esql.executeQueryAndPrintResult(query);
          query = String.format("UPDATE MESSAGE SET status = Read WHERE receiverId = '%s'", esql.current_user);
          esql.executeUpdate(query);
