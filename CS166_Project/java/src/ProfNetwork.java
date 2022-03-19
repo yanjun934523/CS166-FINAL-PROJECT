@@ -385,12 +385,10 @@ public class ProfNetwork {
 // Rest of the functions definition go in here
    public static void ChangePassword(ProfNetwork esql){
       try{
-         System.out.print("\tEnter user login: ");
-         String login = in.readLine();
          System.out.print("\tEnter user password: ");
          String password = in.readLine();
 
-         String query = String.format("SELECT * FROM USR WHERE userId = '%s' AND password = '%s'", login, password);
+         String query = String.format("SELECT * FROM USR WHERE userId = '%s' AND password = '%s'", esql.current_user, password);
          int userNum = esql.executeQuery(query);
          
          if (userNum > 0){
@@ -399,7 +397,7 @@ public class ProfNetwork {
          System.out.print("\tReenter new password: ");
          String new_password2 = in.readLine();
          if(new_password.equals(new_password2)){
-            query = String.format("UPDATE USR SET password = '%s' WHERE userId = '%s'", new_password, login);
+            query = String.format("UPDATE USR SET password = '%s' WHERE userId = '%s'", new_password, esql.current_user);
             esql.executeUpdate(query);
             System.out.println ("User password changed!");
          }
@@ -431,8 +429,9 @@ public class ProfNetwork {
 
    public static void FriendList(ProfNetwork esql){
       try{
-		   
-         System.out.println(esql.current_user);
+		   String query = String.format("SELECT C.connectionId FROM CONNECTION_USR C WHERE C.userId = '%s' AND C.status = 'Accept' "+
+            "UNION SELECT C1.userId FROM CONNECTION_USR C1 WHERE C1.connectionId = '%s' AND C1.status = 'Accept';", esql.current_user,esql.current_user);
+         int friend_num = esql.executeQueryAndPrintResult(query);
          
       }catch(Exception e){
          System.err.println (e.getMessage ());
