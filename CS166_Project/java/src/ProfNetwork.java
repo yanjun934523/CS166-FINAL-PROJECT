@@ -552,7 +552,7 @@ public class ProfNetwork {
             int messstatus = 0;
             query = String.format("SELECT status FROM MESSAGE WHERE msgId = '%s'", msid);
             List<List<String>> temp = esql.executeQueryAndReturnResult(query);
-            if(temp == ["0"]){
+            if(temp.equals(["0"])){
                messstatus = 2;
             }else{
                messstatus = 3;
