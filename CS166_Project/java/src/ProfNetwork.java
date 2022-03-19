@@ -413,7 +413,7 @@ public class ProfNetwork {
          
          String query = String.format("SELECT U.name FROM USR U WHERE U.name ='%s'", PeopleName);
          int userNum = esql.executeQuery(query);
-      }
+      
       if (userNum > 0)
          System.err.println(esql.executeQueryAndReturnResult(query));
       }catch(Exception e){
