@@ -527,10 +527,8 @@ public class ProfNetwork {
    //ConnectionRequest
    public static void ConnectionRequest(ProfNetwork esql){
       try{
-         String query = String.format();
+         //String query = String.format();
          esql.executeUpdate(query);
-         
-      
          
       }catch(Exception e){
          System.err.println(e.getMessage ());
@@ -553,14 +551,14 @@ public class ProfNetwork {
             String msid = in.readLine();
             int messstatus = 0;
             query = String.format("SELECT status FROM MESSAGE WHERE msgId = '%s'", msid);
-            List<List<String>> temp = espl.executeQueryAndReturnResult(query);
-            if(temp == 0){
+            List<List<String>> temp = esql.executeQueryAndReturnResult(query);
+            if(temp == ["0"]){
                messstatus = 2;
             }else{
                messstatus = 3;
             }
 
-            String query = String.format("UPDATE MESSAGE SET deleteStatus = '%x' WHERE msgId = '%s';",messstatus,msid);
+            query = String.format("UPDATE MESSAGE SET deleteStatus = '%x' WHERE msgId = '%s';",messstatus,msid);
             esql.executeUpdate(query);
          }
          
