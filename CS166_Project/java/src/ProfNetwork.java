@@ -426,7 +426,7 @@ public class ProfNetwork {
    public static void FriendList(ProfNetwork esql){
       try{
 		   
-         System.out.println(authorisedUser);
+         System.out.println(esql.authorisedUser);
          
       }catch(Exception e){
          System.err.println (e.getMessage ());
