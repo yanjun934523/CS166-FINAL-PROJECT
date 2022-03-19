@@ -552,7 +552,7 @@ public class ProfNetwork {
             int messstatus = 0;
             query = String.format("SELECT status FROM MESSAGE WHERE msgId = '%s'", msid);
             List<List<String>> temp = esql.executeQueryAndReturnResult(query);
-            if(temp.equals(["0"])){
+            if(temp.equals("0")){
                messstatus = 2;
             }else{
                messstatus = 3;
@@ -561,7 +561,6 @@ public class ProfNetwork {
             query = String.format("UPDATE MESSAGE SET deleteStatus = '%x' WHERE msgId = '%s';",messstatus,msid);
             esql.executeUpdate(query);
          }
-         
       }catch(Exception e){
          System.err.println(e.getMessage ());
          //return null;
