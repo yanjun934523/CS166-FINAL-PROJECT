@@ -274,14 +274,14 @@ public class ProfNetwork {
                 System.out.println("4. Send Friend Request");
                 System.out.println(".........................");
                 System.out.println("9. Log out");
-                switch (readChoice()){
+                /*switch (readChoice()){
                    case 1: FriendList(esql); break;
                    case 2: UpdateProfile(esql); break;
                    case 3: NewMessage(esql); break;
                    case 4: SendRequest(esql); break;
                    case 9: usermenu = false; break;
                    default : System.out.println("Unrecognized choice!"); break;
-                }
+                }*/
               }
             }
          }//end while
@@ -342,7 +342,7 @@ public class ProfNetwork {
          String email = in.readLine();
 
 	 //Creating empty contact\block lists for a user
-	 String query = String.format("INSERT INTO USR (userId, password, email, contact_list) VALUES ('%s','%s','%s')", login, password, email);
+	 String query = String.format("INSERT INTO USR (userId, password, email, contact_list) VALUES ('%s','%s','%s',"")", login, password, email);
 
          esql.executeUpdate(query);
          System.out.println ("User successfully created!");
