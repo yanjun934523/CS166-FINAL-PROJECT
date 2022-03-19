@@ -276,7 +276,7 @@ public class ProfNetwork {
                 System.out.println("6. Search people");
                 System.out.println("9. Log out");
                 switch (readChoice()){
-                   //case 1: FriendList(esql); break;
+                   case 1: FriendList(esql); break;
                    //case 2: UpdateProfile(esql); break;
                    //case 3: NewMessage(esql); break;
                    //case 4: SendRequest(esql); break;
@@ -419,7 +419,17 @@ public class ProfNetwork {
          }
       }catch(Exception e){
          System.err.println (e.getMessage ());
+      }
+      
+   }//end
+
+   public static void FriendList(ProfNetwork esql){
+      try{
+		   
+         System.out.println(authorisedUser);
          
+      }catch(Exception e){
+         System.err.println (e.getMessage ());
       }
       
    }//end

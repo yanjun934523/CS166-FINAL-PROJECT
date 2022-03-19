@@ -9,10 +9,10 @@ CREATE TABLE USR(
 	userId varchar(30) UNIQUE NOT NULL, 
 	password char(30) NOT NULL,
 	email text NOT NULL,
-	name char(50),
+	name varchar(50),
 	dateOfBirth date,
 	Primary Key(userId));
-	
+
 
 CREATE TABLE WORK_EXPR(
 	userId varchar(30) NOT NULL, 
