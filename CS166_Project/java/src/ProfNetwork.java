@@ -471,7 +471,7 @@ public class ProfNetwork {
          query = String.format("UPDATE EDUCATIONAL_DETAILS SET instituitionName = '%s', major = '%s', degree = '%s' WHERE userId = '%s'", instituition_name, major, degree, esql.current_user);
          esql.executeUpdate(query);
          
-      }
+      
          
       }catch(Exception e){
          System.err.println(e.getMessage ());
@@ -497,7 +497,7 @@ public class ProfNetwork {
                esql.current_user, receiver_id, content, "Draft");
          esql.executeUpdate(query);
          }
-      }
+      
          
       }catch(Exception e){
          System.err.println(e.getMessage ());
@@ -514,8 +514,8 @@ public class ProfNetwork {
          String query = String.format("INSERT INTO CONNECTION_USR(userId, connectionId, status) Values('%s', '%s', '%s')",
                esql.current_user, receiver_id, "Request");
          esql.executeUpdate(query);
-         }
-      }
+         
+      
          
       }catch(Exception e){
          System.err.println(e.getMessage ());
@@ -529,8 +529,8 @@ public class ProfNetwork {
       try{
          String query = String.format();
          esql.executeUpdate(query);
-         }
-      }
+         
+      
          
       }catch(Exception e){
          System.err.println(e.getMessage ());
