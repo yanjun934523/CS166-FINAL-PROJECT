@@ -24,6 +24,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.ArrayList;
+import java.time.*;
 
 /**
  * This class defines a simple embedded SQL utility class that is designed to
@@ -528,7 +529,7 @@ public class ProfNetwork {
    public static void ConnectionRequest(ProfNetwork esql){
       try{
          //String query = String.format();
-         esql.executeUpdate(query);
+         //esql.executeUpdate(query);
          
       }catch(Exception e){
          System.err.println(e.getMessage ());
