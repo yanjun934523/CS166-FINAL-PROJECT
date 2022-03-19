@@ -400,7 +400,7 @@ public class ProfNetwork {
       }
          
       }catch(Exception e){
-         System.err.println (e.getMessage ());
+         System.err.println(e.getMessage ());
          //return null;
       }
       
@@ -411,11 +411,9 @@ public class ProfNetwork {
 		   System.out.print("\tEnter people's name: ");
          String PeopleName = in.readLine();
          
-         String query = String.format("SELECT U.name FROM USR U WHERE U.name ='%s'", PeopleName);
-         int userNum = esql.executeQuery(query);
-      
-      if (userNum > 0)
-         System.out.println(esql.executeQueryAndReturnResult(query));
+         String query = String.format("SELECT U.name, U.email FROM USR U WHERE U.name ='%s'", PeopleName);
+         List<List<String>> result = esql.executeQueryAndReturnResult(query);
+         System.out.println(result);
       }catch(Exception e){
          System.err.println (e.getMessage ());
          
