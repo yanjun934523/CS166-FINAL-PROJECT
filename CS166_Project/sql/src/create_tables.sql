@@ -12,6 +12,7 @@ CREATE TABLE USR(
 	name char(50),
 	dateOfBirth date,
 	Primary Key(userId));
+	
 
 CREATE TABLE WORK_EXPR(
 	userId varchar(30) NOT NULL, 
