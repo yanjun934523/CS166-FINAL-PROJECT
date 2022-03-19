@@ -560,8 +560,8 @@ public class ProfNetwork {
                messstatus = 3;
             }
 
-            String query = String.format("UPDATE MESSAGE SET deleteStatus = '%x' WHERE msgId = '%s';"messstatus,msid);
-         esql.executeUpdate(query);
+            String query = String.format("UPDATE MESSAGE SET deleteStatus = '%x' WHERE msgId = '%s';",messstatus,msid);
+            esql.executeUpdate(query);
          }
          
       }catch(Exception e){
