@@ -1,4 +1,5 @@
 /*
+ * Yihua Hao & Yanjun Guan
  * Template JAVA User Interface
  * =============================
  *
@@ -7,7 +8,7 @@
  * University of California - Riverside
  *
  * Target DBMS: 'Postgres'
- *
+ * 
  */
 
 
