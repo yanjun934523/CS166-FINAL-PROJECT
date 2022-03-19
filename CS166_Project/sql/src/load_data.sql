@@ -1,4 +1,3 @@
-
 COPY USR (
 	userId,
 	password,
